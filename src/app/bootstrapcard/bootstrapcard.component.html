@@ -2,6 +2,14 @@
   <select>
     <option *ngFor="let i of months">{{i}}</option>
   </select>
+
+  <p style = "color:blue" *ngIf ="available;">
+      I am visible 
+      </p>
+    <div class="col-4">
+        <div class="row">
+      <app-cards (position)="deleteCard($event)" class="text-center" *ngFor="let card of cards" text="{{card.text}}" number="{{card.number}">
+      </app-cards>
+    </div>
+  </div>
 </div>
-<app-cards text="I am a card" num="2018">
-</app-cards>

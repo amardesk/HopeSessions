@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-cards',
@@ -8,11 +8,17 @@ import { Component, OnInit,Input } from '@angular/core';
 export class CardsComponent implements OnInit {
   @Input() text: String;
   @Input() num: number;
-  userkey="";
+  @Output() position = new EventEmitter<number>()
+  userkey = "";
   constructor() {
-    console.log("I am a constructor",this.text)
-   }
+    console.log("I am a constructor", this.text)
+  }
 
+ 
+
+  deleteChild(number) {
+    this.position.emit(number)
+  }
   ngOnInit() {
     console.log(this.text)
   }
